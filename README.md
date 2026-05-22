@@ -34,7 +34,7 @@ When you run the application, you will interact with a clean terminal:
 git clone https://github.com/sudoRebel/LinuxTaskManager
 
 # Compile with G++
-g++ -o TaskManager main.cpp
+g++ -o LinuxTaskManager main.cpp
 
 # Run the app
 ./LinuxTaskManager

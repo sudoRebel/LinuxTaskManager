@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <limits>
 #include <sys/types.h>
 #include <unistd.h>
 
@@ -81,9 +82,15 @@ int main() {
   while (true) {
     system("clear");
     procList();
-
     std::cout << "Enter a choice (1 Refresh,2 Kill process,3 Exit):";
-    std::cin >> choice;
+
+    if (!(std::cin >> choice)) {
+      std::cout << std::endl << "Error: Enter a number not a text.";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      usleep(5000000);
+      continue;
+    }
 
     if (choice == 1) {
       system("clear");
@@ -93,17 +100,18 @@ int main() {
       std::cin >> procK;
       if (kill(procK, SIGKILL) == 0) {
         std::cout << "Process killed" << std::endl;
+        continue;
       } else {
         perror("Error Killing the process!");
-        usleep(10000000);
+        usleep(5000000);
+        continue;
       }
     } else if (choice == 3) {
       break;
     } else {
-      std::cout << "Unknown state" << std::endl;
+      std::cout << "Unknown state." << std::endl;
       usleep(5000000);
     }
-    continue;
   }
 
   return 0;

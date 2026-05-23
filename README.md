@@ -31,7 +31,7 @@ When you run the application, you will interact with a clean terminal:
 # 🛠️ Installation & Run Guide
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/sudoRebel/linux-task-manager](https://github.com/sudoRebel/linux-task-manager)
+git clone https://github.com/sudoRebel/linux-task-manager
 cd linux-task-manager
 
 # 2. Compile using Clang++ with C++17

@@ -11,10 +11,10 @@
 #include <unistd.h>
 
 int main() {
-  int choice, targetPid;
   while (true) {
     system("clear");
     procList();
+    int choice;
     std::cout << "Enter a choice (1: Refresh, 2: Kill Process, 3: Exit): ";
 
     if (!(std::cin >> choice)) {
@@ -29,6 +29,7 @@ int main() {
       system("clear");
       continue;
     } else if (choice == 2) {
+      int targetPid;
       std::cout << "Select process PID you want to kill: ";
 
       if (!(std::cin >> targetPid)) {
